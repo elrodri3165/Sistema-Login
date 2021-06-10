@@ -13,20 +13,15 @@ if (isset ($_POST['apellido'],$_POST['nombre'],$_POST['email'],$_POST['user'], $
     
     $password = trim($_POST['password']);
     
-    
     $email = filter_var($email, FILTER_SANITIZE_EMAIL);
     
-    $email($email, FILTER_VALIDATE_EMAIL);
-    
-    
-    
-    
+    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
     
     $newuser = New UserDB($apellido, $nombre, $email, $user, $password);
     
     var_dump($newuser);
     
-    //$resultado = $newuser ->Registarusuario();
+    $resultado = $newuser ->Registarusuario();
     
     if ($resultado == true){
         header('Location:../login.php?usuariook');
